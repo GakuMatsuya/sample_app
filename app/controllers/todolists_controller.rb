@@ -7,7 +7,7 @@ class TodolistsController < ApplicationController
     list = List.new(list_params)
     list.save
     redirect_to todolist_path(list.id)
-  endgit 
+  end
   
   def index
     @lists = List.all
@@ -17,8 +17,13 @@ class TodolistsController < ApplicationController
     @list = List.find(params[:id])
   end
   
+  def edit
+    @list = List.find(params[:id])
+  end
+  
   private
   def list_params
     params.require(:list).permit(:title, :body)
   end
+
 end
