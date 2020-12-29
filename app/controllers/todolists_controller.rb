@@ -6,8 +6,8 @@ class TodolistsController < ApplicationController
   def create
     list = List.new(list_params)
     list.save
-    redirect_to todolist_path(list.)
-  end
+    redirect_to todolist_path(list.id)
+  endgit 
   
   def index
     @lists = List.all
